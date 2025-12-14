@@ -6,19 +6,18 @@ import lombok.*;
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
+@ToString
+
 public class Address {
 
     private int streetNo;
     private String street;
     private String city;
     private Province province;
-    private String postalCode; // add the checker and limit to six
+    private String postalCode;
 
-    public enum Province {// territory ?
+    public enum Province {
         AL, BC, MA, NB, NL, NS, ON, PEI, QC, SK
-        // list = Alberta, British Columbia, Manitoba, New Brunswick, Newfoundland and Labrador, Nova Scotia, Ontario, Prince Edward Island, Quebec, and Saskatchewan
-
-        // helper method
     }
 
     public Address(int streetNo, String street, String city, Province province, String postalCode) {
@@ -36,10 +35,10 @@ public class Address {
         }
     }
 
-    public static boolean isValidPostalCode(String postalCode) { // checks length
+    public static boolean isValidPostalCode(String postalCode) {
         if (postalCode == null || postalCode.length() != 6) {
-            return false; // send invalid input instead if you can
-        }// make 2 diffrent loops
+            return false;
+        }
         postalCode =postalCode.toUpperCase();
 
         for (int i = 0; i < postalCode.length(); i += 2) {
@@ -62,14 +61,4 @@ public class Address {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Address{" +
-                "streetNo=" + streetNo +
-                ", street='" + street + '\'' +
-                ", city='" + city + '\'' +
-                ", province=" + province +
-                ", postalCode='" + postalCode + '\'' +
-                '}';
-    }
 }
