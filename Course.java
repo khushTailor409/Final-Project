@@ -14,14 +14,14 @@ import java.util.ArrayList;
 public class Course {
     private String courseId;
     private String courseName;
+    private double credits;
     private Department department;
+    private ArrayList<Assignment> assignments;
     private ArrayList<Student> registeredStudents = new ArrayList<>();
+    private static int nextId = 1;
 
-    // Constructor for testing
     public Course(String courseId, String courseName, Department department) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.department = department;
     }
-}
-
