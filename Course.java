@@ -20,8 +20,70 @@ public class Course {
     private ArrayList<Student> registeredStudents = new ArrayList<>();
     private static int nextId = 1;
 
-    public Course(String courseId, String courseName, Department department) {
-        this.courseId = courseId;
-        this.courseName = courseName;
-        this.department = department;
+    public Course(String courseName, double credits, Department department) {
+        if (isCourseNameValid(courseName) && credits > 0 && department != null) {
+            this.courseName = courseName;
+            this.credits = credits;
+            this.department = department;
+            this.assignments = new ArrayList<>();
+            this.registeredStudents = new ArrayList<>();
+            this.courseId = "C-" + department.getDepartmentId() + "-" + String.format("%02d", nextId++);
+        } else {
+            this.courseName = null;
+            this.credits = 0;
+            this.department = null;
+            this.assignments = null;
+            this.registeredStudents = null;
+            this.courseId = null;
+        }
     }
+    private static boolean isCourseNameValid(String courseName) {
+        if (courseName == null || courseName.isEmpty()) {
+            return false;
+        }
+        for (int i = 0; i < courseName.length(); i++) {
+            char c = courseName.charAt(i);
+            if (!Character.isLetter(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean registerStudent(Student student) {
+        if (registeredStudents.contains(student)) {
+            return false;
+        }
+        registeredStudents.add(student);
+        for (Assignment assignment : assignments) {
+            assignment.getScores().add(null);
+        }
+        return true;
+    }
+    public boolean addAssignment(String assignmentName, double weight){
+        if (assignmentName == null || assignmentName.isEmpty()) {
+            return false;
+        }
+        Assignment newAssignment = new Assignment(assignmentName, weight);
+        assignments.add(newAssignment);
+        return true;
+    }
+public boolean isAssignmentWeightValid() {
+        double sum = 0;
+        for (Assignment assignment : assignments) {
+            sum += assignment.getWeight();
+        }
+        return Math.abs(sum - 100) < 0.001;
+}
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseId='" + courseId + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", credits=" + credits +
+                ", department=" + department +
+                '}';
+    }
+}
+
+
