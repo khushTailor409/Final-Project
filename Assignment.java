@@ -20,7 +20,7 @@ import java.util.Random;
         private static int nextId = 1;
 
     public Assignment(String assignmentName, double weight) {
-        this.assignmentId = String.format("D%02d", nextId++);
+        this.assignmentId = String.format("A%02d", nextId++);
         this.assignmentName = assignmentName;
         this.weight = weight;
         this.scores = new ArrayList<>();
@@ -28,7 +28,6 @@ import java.util.Random;
 
     public double calcAssignmentAvg() {
         if (scores == null || scores.isEmpty()) return 0;
-
         double sum = 0;
         int count = 0;
         for (Integer score : scores) {
@@ -40,7 +39,8 @@ import java.util.Random;
         return count == 0 ? 0 : sum / count;
     }
     public void generateRandomScore() {
-    Random rand = new Random();
+        if (scores == null || scores.isEmpty()) return;
+        Random rand = new Random();
 
     int[][] ranges = {
             {0, 59},
