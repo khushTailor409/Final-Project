@@ -1,6 +1,5 @@
 package org.khush;
 
-
 import lombok.*;
 
 import java.util.ArrayList;
@@ -9,7 +8,7 @@ import java.util.ArrayList;
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
-@ToString
+@ToString // add simplified string ??
 public class Student {
     private String studentId;
     private String studentName;
@@ -33,20 +32,35 @@ public class Student {
     }
 
     public boolean registerCourse(Course course) {
-        if (registeredCourses.contains(course)) {
-            return false;
-        }
+        if (registeredCourses.contains(course)) return false;
+
         registeredCourses.add(course);
-        course.getRegisteredStudents().add(this);
+
+        if (!course.getRegisteredStudents().contains(this)) {
+            course.getRegisteredStudents().add(this);
+        }
 
         for (Assignment assignment : course.getAssignments()) {
             assignment.getScores().add(null);
         }
         return true;
     }
+    public boolean dropCourse(Course course) {
+        if (!registeredCourses.contains(course)) return false;
 
+        registeredCourses.remove(course);
+
+        int studentIndex = course.getRegisteredStudents().indexOf(this);
+        if (studentIndex >= 0){
+
+            course.getRegisteredStudents().remove(studentIndex);
+
+        for (Assignment assignment : course.getAssignments()) {
+            if (studentIndex < assignment.getScores().size()) {
+                assignment.getScores().remove(studentIndex);
+                }
+            }
+        }
+    return true;
+    }
 }
-
-
-       
-
