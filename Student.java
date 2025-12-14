@@ -22,6 +22,7 @@ public class Student {
     public enum Gender {
         MALE, FEMALE
     }
+
     public Student(String studentName, Gender gender, Address address, Department department) {
         this.studentId = String.format("S%05d", nextId++);
         this.studentName = studentName;
@@ -36,6 +37,16 @@ public class Student {
             return false;
         }
         registeredCourses.add(course);
+        course.getRegisteredStudents().add(this);
 
-       // make other class for the rest
+        for (Assignment assignment : course.getAssignments()) {
+            assignment.getScores().add(null);
+        }
+        return true;
+    }
+
+}
+
+
+       
 
