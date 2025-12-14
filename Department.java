@@ -18,12 +18,12 @@ public class Department {
             this.departmentName = departmentName;
             this.departmentId = generateDepartmentId();
         } else { this.departmentName = null;
-            this.departmentId = null;}
+            this.departmentId = null;
+        }
     }
+
     private static String generateDepartmentId() {
-        String id = String.format("D%02d", nextId);
-        nextId++;
-        return id;
+        return String.format("D%02d", nextId++);
     }
 
     public static boolean isDepartmentNameValid(String departmentName) {
