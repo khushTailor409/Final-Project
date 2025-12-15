@@ -1,0 +1,66 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.7">
+  <diagram name="Page-1" id="CRL3wsygMKyx-KyewN2e">
+    <mxGraphModel dx="1895" dy="1116" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-34" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="100" width="180" x="630" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-32" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="259.69" width="240" x="530" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;" value="" vertex="1">
+          <mxGeometry height="235" width="254.69" x="332.35" y="595.16" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;rotation=-90;" value="" vertex="1">
+          <mxGeometry height="230" width="235" x="62.19" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-20" edge="1" parent="1" source="73w_Os2ZcO8NB2zERxgY-19" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="246.2550000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;rotation=-90;" value="" vertex="1">
+          <mxGeometry height="193.13" width="200" x="297.19" y="149.69" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;rotation=-90;" value="" vertex="1">
+          <mxGeometry height="182.5" width="265" x="-28.75" y="156.25" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=16;" value="&lt;div&gt;Address&lt;/div&gt;&lt;div&gt;-------------------------&lt;/div&gt;&lt;div&gt;- streetNo: int&lt;/div&gt;&lt;div&gt;- street: String&lt;/div&gt;&lt;div&gt;- city: String&lt;/div&gt;&lt;div&gt;- province: Province&lt;/div&gt;&lt;div&gt;- postalCode: String&lt;/div&gt;&lt;div&gt;-------------------------&lt;/div&gt;&lt;div&gt;+ Address(...)&lt;/div&gt;&lt;div&gt;+ isPostalCodeValid(String): boolean&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="110" x="50" y="232.5" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-17" parent="1" style="text;whiteSpace=wrap;" value="Department&#xa;-------------------------&#xa;- departmentId: String&#xa;- departmentName: String&#xa;-------------------------&#xa;+ Department(String)&#xa;+ isDepartmentNameValid(String): boolean" vertex="1">
+          <mxGeometry height="120" width="110" x="315" y="156.25" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-35" edge="1" parent="1" source="73w_Os2ZcO8NB2zERxgY-21" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" target="73w_Os2ZcO8NB2zERxgY-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-21" parent="1" style="text;whiteSpace=wrap;" value="Student&#xa;-------------------------&#xa;- studentId: String&#xa;- studentName: String&#xa;- gender: Gender&#xa;- address: Address&#xa;- department: Department&#xa;- registeredCourses: ArrayList&lt;Course&gt;&#xa;-------------------------&#xa;+ Student(...)&#xa;+ registerCourse(Course): boolean&#xa;+ dropCourse(Course): boolean&#xa;+ toSimplifiedString(): String" vertex="1">
+          <mxGeometry height="210" width="240" x="560" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-24" parent="1" style="text;whiteSpace=wrap;" value="Course&#xa;-------------------------&#xa;- courseId: String&#xa;- courseName: String&#xa;- credits: double&#xa;- department: Department&#xa;- assignments: ArrayList&lt;Assignment&gt;&#xa;- registeredStudents: ArrayList&lt;Student&gt;&#xa;-------------------------&#xa;+ Course(...)&#xa;+ addAssignment(...)&#xa;+ registerStudent(Student): boolean&#xa;+ isAssignmentWeightValid(): boolean&#xa;+ calcStudentsAverage(): int[]&#xa;+ toSimplifiedString(): String" vertex="1">
+          <mxGeometry height="240" width="250" x="350" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-27" parent="1" style="text;whiteSpace=wrap;" value="Assignment&#xa;-------------------------&#xa;- assignmentId: String&#xa;- assignmentName: String&#xa;- weight: double&#xa;- scores: ArrayList&lt;Integer&gt;&#xa;-------------------------&#xa;+ Assignment(...)&#xa;+ generateRandomScore(): void&#xa;+ calcAssignmentAvg(): double" vertex="1">
+          <mxGeometry height="170" width="200" x="79.69" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-28" edge="1" parent="1" source="73w_Os2ZcO8NB2zERxgY-9" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.168;entryY=0.033;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;startSize=8;endSize=8;" target="73w_Os2ZcO8NB2zERxgY-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-29" edge="1" parent="1" source="73w_Os2ZcO8NB2zERxgY-27" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=-0.004;entryY=0.581;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;startSize=8;endSize=8;" target="73w_Os2ZcO8NB2zERxgY-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-31" edge="1" parent="1" source="73w_Os2ZcO8NB2zERxgY-21" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;fontSize=12;startSize=8;endSize=8;" target="73w_Os2ZcO8NB2zERxgY-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-33" parent="1" style="text;whiteSpace=wrap;" value="Util&#xa;-------------------------&#xa;&lt;&lt;utility&gt;&gt;&#xa;-------------------------&#xa;+ toTitleCase(String): String" vertex="1">
+          <mxGeometry height="100" width="180" x="630" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="73w_Os2ZcO8NB2zERxgY-36" edge="1" parent="1" source="73w_Os2ZcO8NB2zERxgY-33" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.84;entryY=0.316;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;startSize=8;endSize=8;" target="73w_Os2ZcO8NB2zERxgY-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
