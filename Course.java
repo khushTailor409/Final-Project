@@ -16,7 +16,7 @@ public class Course {
     private String courseName;
     private double credits;
     private Department department;
-    private ArrayList<Assignment> assignments;
+    private ArrayList<Assignment> assignments = new ArrayList<>();
     private ArrayList<Student> registeredStudents = new ArrayList<>();
     private static int nextId = 1;
 
@@ -38,21 +38,17 @@ public class Course {
         }
     }
     private static boolean isCourseNameValid(String courseName) {
-        if (courseName == null || courseName.isEmpty()) {
-            return false;
-        }
+        if (courseName == null || courseName.isEmpty()) return false;
         for (int i = 0; i < courseName.length(); i++) {
             char c = courseName.charAt(i);
-            if (!Character.isLetter(c)) {
-                return false;
-            }
+            if (!Character.isLetter(c) && c != ' ') return false;
         }
         return true;
-    }
-    public boolean registerStudent(Student student) {
-        if (registeredStudents.contains(student)) {
-            return false;
         }
+
+    public boolean registerStudent(Student student) {
+        if (registeredStudents.contains(student)) return false;
+
         registeredStudents.add(student);
         for (Assignment assignment : assignments) {
             assignment.getScores().add(null);
@@ -64,6 +60,9 @@ public class Course {
             return false;
         }
         Assignment newAssignment = new Assignment(assignmentName, weight);
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            newAssignment.getScores().add(null);
+        }
         assignments.add(newAssignment);
         return true;
     }
