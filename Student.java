@@ -23,7 +23,7 @@ public class Student {
     }
 
     public Student(String studentName, Gender gender, Address address, Department department) {
-        this.studentId = String.format("S%05d", nextId++);
+        this.studentId = String.format("S%06d", nextId++);
         this.studentName = studentName;
         this.gender = gender;
         this.address = address;
@@ -62,5 +62,9 @@ public class Student {
             }
         }
     return true;
+    }
+    public String toSimplifyString() {
+        return studentId + " " + studentName + " " +
+                (department != null ? department.getDepartmentName() : "no department");
     }
 }
